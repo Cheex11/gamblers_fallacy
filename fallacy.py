@@ -1,13 +1,13 @@
 import random
 
 def Main():
-    cash = 5000
+    cash = 50000
     trial = 0
     bet_amount = 0
     prediction = 0
     flips = [0]
     response = ''
-    max_cash = 5000
+    max_cash = 50000
 
     while cash > 0 and trial < 500000:
         if three_in_a_row(flips) != False :
@@ -17,13 +17,11 @@ def Main():
             bet_amount = 0
         flip_coin(flips)
         if flips[-1] == prediction:
-            print "WE WON and have",cash,"cash"
             cash = cash + bet_amount
             if cash > max_cash:
                 max_cash = cash
         else:
             cash = cash - bet_amount
-            print 'we lost and have',cash,"."
 
         trial += 1
 
@@ -34,7 +32,6 @@ def define_bet(flips):
     if three_in_a_row(flips) == False:
         return 0
     else:
-        print 'THREE IN A ROW'
         return 100
 
 def three_in_a_row(flips):
